@@ -99,7 +99,7 @@ Screenshots will be added soon.
 
 ## 👨‍💻 Author
 
-**Sunil Jawargi**
+**Sunil J**
 
 BE – Computer Science & Engineering
 

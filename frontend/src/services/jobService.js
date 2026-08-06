@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:8081/api/jobs";
+const API_URL = "https://jobsphere-ai-qfsv.onrender.com/api/jobs";
 
 export const getJobs = () => axios.get(API_URL);
 
