@@ -1,63 +1,126 @@
-# 🚀 JobSphere
+# 💼 JobSphere - Full Stack Job Portal
 
-A Full Stack Job Management System built using **React**, **Spring Boot**, and **MySQL**.
-
-JobSphere is a modern web application that helps users manage job postings efficiently. It provides complete CRUD functionality with a responsive user interface and RESTful backend APIs.
+A modern **Full Stack Job Portal** built using **React, Spring Boot, and MySQL**. JobSphere allows users to create, manage, update, search, sort, and delete job listings through a clean, responsive, and user-friendly interface.
 
 ---
 
-## ✨ Features
+## 🌐 Live Demo
 
-- ➕ Add a new job
-- 📋 View all jobs
-- ✏️ Update existing jobs
-- 🗑️ Delete jobs with confirmation
-- 🔍 Search jobs by title
-- ↕️ Sort jobs
-- 📊 Dashboard statistics
-- 🕒 Recent jobs section
-- 🔔 Toast notifications
-- ⏳ Loading spinner
-- 📱 Fully responsive design
-- 🚫 Custom 404 page
-- ✅ Form validation
+**Frontend:** https://jobsphere-ai-psi.vercel.app
+
+**Backend API:** https://jobsphere-ai-qfsv.onrender.com/api/jobs
 
 ---
 
-## 🛠️ Tech Stack
+## 📸 Application Screenshots
+
+### 🏠 Home Page
+
+![Home Page](screenshots/home-1.png)
+
+![Home Dashboard](screenshots/home-2.png)
+
+---
+
+### 💼 View Jobs
+
+![View Jobs](screenshots/jobs.png)
+
+---
+
+### ➕ Add Job
+
+![Add Job](screenshots/add-job.png)
+
+---
+
+### ✏️ Edit Job
+
+![Edit Job](screenshots/edit-job.png)
+
+---
+
+## 🚀 Features
+
+- Create New Job Listings
+- Update Existing Jobs
+- Delete Jobs
+- Search Jobs by Title
+- Sort Jobs by Title, Company and Salary
+- Dashboard Statistics
+- Recent Jobs Section
+- Responsive User Interface
+- Form Validation
+- Toast Notifications
+- Loading Spinner
+- Delete Confirmation Dialog
+- REST API Integration
+
+---
+
+## 🛠 Tech Stack
 
 ### Frontend
-- React (Vite)
+
+- React
+- React Router DOM
+- Axios
 - Bootstrap 5
 - Bootstrap Icons
-- Axios
-- React Router DOM
 - React Toastify
+- Vite
 
 ### Backend
-- Java
+
+- Java 24
 - Spring Boot
 - Spring Data JPA
-- REST APIs
+- Maven
 
 ### Database
-- MySQL
+
+- MySQL (Railway)
+
+### Deployment
+
+- Vercel (Frontend)
+- Render (Backend)
+- Railway (Database)
+- GitHub
 
 ---
 
 ## 📁 Project Structure
 
-```
-GlobalcoAssessment
-├── backend
-└── frontend
+```text
+JobSphere
+│
+├── Backend
+│   ├── src
+│   ├── pom.xml
+│   └── application.properties
+│
+├── frontend
+│   ├── src
+│   ├── public
+│   ├── package.json
+│   └── vite.config.js
+│
+├── screenshots
+│   ├── home-1.png
+│   ├── home-2.png
+│   ├── jobs.png
+│   ├── add-job.png
+│   └── edit-job.png
+│
+└── README.md
 ```
 
 ---
 
-## ⚙️ Installation
+## ⚙ Installation
 
-### Clone the repository
+### Clone Repository
 
 ```bash
 git clone https://github.com/Sunil20033/jobsphere-ai.git
@@ -66,8 +129,8 @@ git clone https://github.com/Sunil20033/jobsphere-ai.git
 ### Backend
 
 ```bash
-cd backend
-mvn spring-boot:run
+cd Backend
+./mvnw spring-boot:run
 ```
 
 ### Frontend
@@ -80,27 +143,42 @@ npm run dev
 
 ---
 
-## 📸 Screenshots
+## 📌 API Endpoints
 
-Screenshots will be added soon.
+| Method | Endpoint | Description |
+|---------|----------|-------------|
+| GET | `/api/jobs` | Get all jobs |
+| GET | `/api/jobs/{id}` | Get job by ID |
+| POST | `/api/jobs` | Create a new job |
+| PUT | `/api/jobs/{id}` | Update a job |
+| DELETE | `/api/jobs/{id}` | Delete a job |
 
 ---
 
-## 🚀 Future Enhancements
+## 🌟 Future Improvements
 
 - User Authentication
-- Role-Based Access Control
+- Role-Based Access
+- Company Logos
+- Job Categories
+- Advanced Filters
 - Pagination
-- Resume Upload
-- AI Job Recommendation
-- Cloud Storage Support
+- Email Notifications
 
 ---
 
-## 👨‍💻 Author
+## 👨‍💻 Developed By
 
 **Sunil J**
 
-BE – Computer Science & Engineering
-
 Java Full Stack Developer
+
+GitHub: https://github.com/Sunil20033
+
+---
+
+## ⭐ Support
+
+If you found this project useful, consider giving it a **Star ⭐** on GitHub.
+
+It helps others discover the project and supports my work.
