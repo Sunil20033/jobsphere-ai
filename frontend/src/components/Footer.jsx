@@ -13,7 +13,7 @@ function Footer() {
 
         <small className="d-block mb-2">
           <i className="bi bi-code-slash me-1"></i>
-          Developed by <strong>Sunil J</strong>
+          Developed with ❤️ by <strong>Sunil J</strong>
         </small>
 
         <small className="text-secondary">

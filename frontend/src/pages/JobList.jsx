@@ -6,6 +6,8 @@ import { toast } from "react-toastify";
 function JobList() {
   const [jobs, setJobs] = useState([]);
   const [search, setSearch] = useState("");
+  const [companySearch, setCompanySearch] = useState("");
+  const [locationSearch, setLocationSearch] = useState("");
   const [sortBy, setSortBy] = useState("");
   const [loading, setLoading] = useState(true);
   const [showModal, setShowModal] = useState(false);
@@ -48,9 +50,25 @@ const [selectedJobId, setSelectedJobId] = useState(null);
       }
     };
 
-  let filteredJobs = jobs.filter((job) =>
-    job.title.toLowerCase().includes(search.toLowerCase())
-  );
+    let filteredJobs = jobs.filter((job) =>
+
+        job.title
+            .toLowerCase()
+            .includes(search.toLowerCase())
+
+        &&
+
+        job.company
+            .toLowerCase()
+            .includes(companySearch.toLowerCase())
+
+        &&
+
+        job.location
+            .toLowerCase()
+            .includes(locationSearch.toLowerCase())
+
+    );
 
   if (sortBy === "title") {
     filteredJobs.sort((a, b) => a.title.localeCompare(b.title));
@@ -64,14 +82,18 @@ const [selectedJobId, setSelectedJobId] = useState(null);
 
   if (loading) {
     return (
-      <div className="container text-center mt-5">
-        <div
-          className="spinner-border text-primary"
-          style={{ width: "4rem", height: "4rem" }}
-        ></div>
+        <div className="text-center py-5">
 
-        <h4 className="mt-3">Loading Jobs...</h4>
-      </div>
+            <div
+                className="spinner-border text-primary"
+                style={{width:"4rem",height:"4rem"}}
+            ></div>
+
+            <h4 className="mt-4">
+                Loading Jobs...
+            </h4>
+
+        </div>
     );
   }
 
@@ -81,38 +103,71 @@ const [selectedJobId, setSelectedJobId] = useState(null);
 
       <h2 className="mb-4 text-center">Available Jobs</h2>
 
-      <div className="row mb-4">
+      <div className="row g-3 mb-4">
 
-        <div className="col-md-8">
-          <input
-            type="text"
-            className="form-control"
-            placeholder="🔍 Search by Job Title..."
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-          />
-        </div>
+          <div className="col-lg-4">
 
-        <div className="col-md-4">
-          <select
-            className="form-select"
-            value={sortBy}
-            onChange={(e) => setSortBy(e.target.value)}
-          >
-            <option value="">Sort By</option>
-            <option value="title">Title (A-Z)</option>
-            <option value="company">Company (A-Z)</option>
-            <option value="salaryLow">Salary (Low → High)</option>
-            <option value="salaryHigh">Salary (High → Low)</option>
-          </select>
-        </div>
+              <input
+                  className="form-control"
+                  placeholder="🔍 Search Job Title"
+                  value={search}
+                  onChange={(e)=>setSearch(e.target.value)}
+              />
+
+          </div>
+
+          <div className="col-lg-3">
+
+              <input
+                  className="form-control"
+                  placeholder="🏢 Company"
+                  value={companySearch}
+                  onChange={(e)=>setCompanySearch(e.target.value)}
+              />
+
+          </div>
+
+          <div className="col-lg-3">
+
+              <input
+                  className="form-control"
+                  placeholder="📍 Location"
+                  value={locationSearch}
+                  onChange={(e)=>setLocationSearch(e.target.value)}
+              />
+
+          </div>
+
+          <div className="col-lg-2">
+
+              <select
+                  className="form-select"
+                  value={sortBy}
+                  onChange={(e)=>setSortBy(e.target.value)}
+              >
+
+                  <option value="">Sort</option>
+                  <option value="title">Title</option>
+                  <option value="company">Company</option>
+                  <option value="salaryLow">Salary ↑</option>
+                  <option value="salaryHigh">Salary ↓</option>
+
+              </select>
+
+          </div>
 
       </div>
 
       {filteredJobs.length === 0 ? (
         <div className="text-center mt-5">
 
-          <h2>😔</h2>
+          <i
+          className="bi bi-search"
+          style={{
+          fontSize:"70px",
+          color:"#0d6efd"
+          }}
+          ></i>
 
           <h4>No Jobs Found</h4>
 
@@ -127,9 +182,8 @@ const [selectedJobId, setSelectedJobId] = useState(null);
         </div>
       ) : (
       <div className="table-responsive">
-        <table className="table table-bordered table-hover shadow">
-
-          <thead className="table-dark">
+        <table className="table table-hover align-middle shadow rounded overflow-hidden">
+          <thead className="table-primary">
             <tr>
               <th>ID</th>
               <th>Title</th>
@@ -156,14 +210,14 @@ const [selectedJobId, setSelectedJobId] = useState(null);
                     to={`/edit/${job.id}`}
                     className="btn btn-warning btn-sm me-2"
                   >
-                    Edit
+                    <i className="bi bi-pencil-square"></i> Edit
                   </Link>
 
                   <button
                     className="btn btn-danger btn-sm"
                     onClick={() => handleDelete(job.id)}
                   >
-                    Delete
+                    <i className="bi bi-trash"></i> Delete
                   </button>
                 </td>
 

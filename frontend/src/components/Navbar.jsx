@@ -1,13 +1,13 @@
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 function Navbar() {
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-dark shadow">
+    <nav className="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm sticky-top">
       <div className="container">
 
-        <NavLink className="navbar-brand fw-bold fs-3" to="/">
+        <Link className="navbar-brand fw-bold fs-2" to="/">
           💼 JobSphere
-        </NavLink>
+        </Link>
 
         <button
           className="navbar-toggler"
@@ -18,39 +18,30 @@ function Navbar() {
           <span className="navbar-toggler-icon"></span>
         </button>
 
-        <div className="collapse navbar-collapse" id="navbarNav">
-          <ul className="navbar-nav ms-auto">
+        <div
+          className="collapse navbar-collapse justify-content-end"
+          id="navbarNav"
+        >
+          <ul className="navbar-nav align-items-center">
 
-            <li className="nav-item">
-              <NavLink
-                to="/"
-                className={({ isActive }) =>
-                  isActive ? "nav-link active fw-bold" : "nav-link"
-                }
-              >
+            <li className="nav-item mx-2">
+              <NavLink className="nav-link" to="/">
                 Home
               </NavLink>
             </li>
 
-            <li className="nav-item">
-              <NavLink
-                to="/jobs"
-                className={({ isActive }) =>
-                  isActive ? "nav-link active fw-bold" : "nav-link"
-                }
-              >
+            <li className="nav-item mx-2">
+              <NavLink className="nav-link" to="/jobs">
                 View Jobs
               </NavLink>
             </li>
 
-            <li className="nav-item">
+            <li className="nav-item mx-2">
               <NavLink
+                className="btn btn-primary rounded-pill ms-3 px-4"
                 to="/add"
-                className={({ isActive }) =>
-                  isActive ? "nav-link active fw-bold" : "nav-link"
-                }
               >
-                Add Job
+                + Add Job
               </NavLink>
             </li>
 

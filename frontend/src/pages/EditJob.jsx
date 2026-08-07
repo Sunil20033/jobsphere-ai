@@ -74,69 +74,181 @@ function EditJob() {
   };
 
   return (
-    <div className="container mt-4">
-      <h2 className="mb-4">Edit Job</h2>
 
-      <form onSubmit={handleSubmit}>
+  <div className="container py-5">
 
-        <input
-          className="form-control"
-          name="title"
-          value={job.title}
-          onChange={handleChange}
-        />
-        <small className="text-danger">{errors.title}</small>
+      <div className="row justify-content-center">
 
-        <br />
+          <div className="col-lg-8">
 
-        <input
-          className="form-control"
-          name="company"
-          value={job.company}
-          onChange={handleChange}
-        />
-        <small className="text-danger">{errors.company}</small>
+              <div className="card shadow-lg border-0 rounded-4">
 
-        <br />
+                  <div className="card-body p-5">
 
-        <input
-          className="form-control"
-          name="location"
-          value={job.location}
-          onChange={handleChange}
-        />
-        <small className="text-danger">{errors.location}</small>
+                      <div className="text-center mb-5">
 
-        <br />
+                          <i
+                              className="bi bi-pencil-square text-warning"
+                              style={{fontSize:"55px"}}
+                          ></i>
 
-        <input
-          className="form-control"
-          type="number"
-          name="salary"
-          value={job.salary}
-          onChange={handleChange}
-        />
-        <small className="text-danger">{errors.salary}</small>
+                          <h2 className="fw-bold mt-3">
+                              Update Job
+                          </h2>
 
-        <br />
+                          <p className="text-muted">
+                              Modify the job details and save your changes.
+                          </p>
 
-        <textarea
-          className="form-control"
-          rows="4"
-          name="description"
-          value={job.description}
-          onChange={handleChange}
-        ></textarea>
-        <small className="text-danger">{errors.description}</small>
+                      </div>
 
-        <br />
+                      <form onSubmit={handleSubmit}>
 
-        <button className="btn btn-success">
-          Update Job
-        </button>
+                          <div className="mb-4">
 
-      </form>
-    </div>
+                              <label className="form-label fw-semibold">
+                                  Job Title *
+                              </label>
+
+                              <input
+                                  className="form-control form-control-lg"
+                                  type="text"
+                                  name="title"
+                                  value={job.title}
+                                  onChange={handleChange}
+                              />
+
+                              <small className="text-danger">
+                                  {errors.title}
+                              </small>
+
+                          </div>
+
+                          <div className="row">
+
+                              <div className="col-md-6 mb-4">
+
+                                  <label className="form-label fw-semibold">
+                                      Company *
+                                  </label>
+
+                                  <input
+                                      className="form-control form-control-lg"
+                                      type="text"
+                                      name="company"
+                                      value={job.company}
+                                      onChange={handleChange}
+                                  />
+
+                                  <small className="text-danger">
+                                      {errors.company}
+                                  </small>
+
+                              </div>
+
+                              <div className="col-md-6 mb-4">
+
+                                  <label className="form-label fw-semibold">
+                                      Location *
+                                  </label>
+
+                                  <input
+                                      className="form-control form-control-lg"
+                                      type="text"
+                                      name="location"
+                                      value={job.location}
+                                      onChange={handleChange}
+                                  />
+
+                                  <small className="text-danger">
+                                      {errors.location}
+                                  </small>
+
+                              </div>
+
+                          </div>
+
+                          <div className="mb-4">
+
+                              <label className="form-label fw-semibold">
+                                  Salary *
+                              </label>
+
+                              <div className="input-group input-group-lg">
+
+                                  <span className="input-group-text">
+                                      ₹
+                                  </span>
+
+                                  <input
+                                      className="form-control"
+                                      type="number"
+                                      name="salary"
+                                      value={job.salary}
+                                      onChange={handleChange}
+                                  />
+
+                              </div>
+
+                              <small className="text-danger">
+                                  {errors.salary}
+                              </small>
+
+                          </div>
+
+                          <div className="mb-4">
+
+                              <label className="form-label fw-semibold">
+                                  Job Description *
+                              </label>
+
+                              <textarea
+                                  className="form-control"
+                                  rows="6"
+                                  name="description"
+                                  value={job.description}
+                                  onChange={handleChange}
+                              ></textarea>
+
+                              <small className="text-danger">
+                                  {errors.description}
+                              </small>
+
+                          </div>
+
+                          <div className="d-flex justify-content-between">
+
+                              <button
+                                  type="button"
+                                  className="btn btn-outline-secondary btn-lg"
+                                  onClick={() => navigate("/jobs")}
+                              >
+                                  Cancel
+                              </button>
+
+                              <button
+                                  className="btn btn-warning btn-lg px-5"
+                              >
+                                  <i className="bi bi-pencil-square me-2"></i>
+
+                                  Update Job
+
+                              </button>
+
+                          </div>
+
+                      </form>
+
+                  </div>
+
+              </div>
+
+          </div>
+
+      </div>
+
+  </div>
+
   );
 }
 

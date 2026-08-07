@@ -64,77 +64,186 @@ function AddJob() {
   };
 
   return (
-    <div className="container mt-4">
-      <h2 className="mb-4">Add New Job</h2>
 
-      <form onSubmit={handleSubmit}>
+  <div className="container py-5">
 
-        <input
-          className="form-control"
-          type="text"
-          name="title"
-          placeholder="Job Title"
-          value={job.title}
-          onChange={handleChange}
-        />
-        <small className="text-danger">{errors.title}</small>
+      <div className="row justify-content-center">
 
-        <br />
+          <div className="col-lg-8">
 
-        <input
-          className="form-control"
-          type="text"
-          name="company"
-          placeholder="Company"
-          value={job.company}
-          onChange={handleChange}
-        />
-        <small className="text-danger">{errors.company}</small>
+              <div className="card shadow-lg border-0 rounded-4">
 
-        <br />
+                  <div className="card-body p-5">
 
-        <input
-          className="form-control"
-          type="text"
-          name="location"
-          placeholder="Location"
-          value={job.location}
-          onChange={handleChange}
-        />
-        <small className="text-danger">{errors.location}</small>
+                      <div className="text-center mb-5">
 
-        <br />
+                          <i
+                              className="bi bi-briefcase-fill text-primary"
+                              style={{fontSize:"55px"}}
+                          ></i>
 
-        <input
-          className="form-control"
-          type="number"
-          name="salary"
-          placeholder="Salary"
-          value={job.salary}
-          onChange={handleChange}
-        />
-        <small className="text-danger">{errors.salary}</small>
+                          <h2 className="fw-bold mt-3">
+                              Post a New Job
+                          </h2>
 
-        <br />
+                          <p className="text-muted">
+                              Fill in the details below to publish a new job opening.
+                          </p>
 
-        <textarea
-          className="form-control"
-          rows="4"
-          name="description"
-          placeholder="Job Description"
-          value={job.description}
-          onChange={handleChange}
-        ></textarea>
-        <small className="text-danger">{errors.description}</small>
+                      </div>
 
-        <br />
+                      <form onSubmit={handleSubmit}>
 
-        <button className="btn btn-primary">
-          Add Job
-        </button>
+                          <div className="mb-4">
 
-      </form>
-    </div>
+                              <label className="form-label fw-semibold">
+                                  Job Title *
+                              </label>
+
+                              <input
+                                  className="form-control form-control-lg"
+                                  type="text"
+                                  name="title"
+                                  placeholder="Software Engineer"
+                                  value={job.title}
+                                  onChange={handleChange}
+                              />
+
+                              <small className="text-danger">
+                                  {errors.title}
+                              </small>
+
+                          </div>
+
+                          <div className="row">
+
+                              <div className="col-md-6 mb-4">
+
+                                  <label className="form-label fw-semibold">
+                                      Company *
+                                  </label>
+
+                                  <input
+                                      className="form-control form-control-lg"
+                                      type="text"
+                                      name="company"
+                                      placeholder="Google"
+                                      value={job.company}
+                                      onChange={handleChange}
+                                  />
+
+                                  <small className="text-danger">
+                                      {errors.company}
+                                  </small>
+
+                              </div>
+
+                              <div className="col-md-6 mb-4">
+
+                                  <label className="form-label fw-semibold">
+                                      Location *
+                                  </label>
+
+                                  <input
+                                      className="form-control form-control-lg"
+                                      type="text"
+                                      name="location"
+                                      placeholder="Hyderabad"
+                                      value={job.location}
+                                      onChange={handleChange}
+                                  />
+
+                                  <small className="text-danger">
+                                      {errors.location}
+                                  </small>
+
+                              </div>
+
+                          </div>
+
+                          <div className="mb-4">
+
+                              <label className="form-label fw-semibold">
+                                  Salary *
+                              </label>
+
+                              <div className="input-group input-group-lg">
+
+                                  <span className="input-group-text">
+                                      ₹
+                                  </span>
+
+                                  <input
+                                      className="form-control"
+                                      type="number"
+                                      name="salary"
+                                      placeholder="800000"
+                                      value={job.salary}
+                                      onChange={handleChange}
+                                  />
+
+                              </div>
+
+                              <small className="text-danger">
+                                  {errors.salary}
+                              </small>
+
+                          </div>
+
+                          <div className="mb-4">
+
+                              <label className="form-label fw-semibold">
+                                  Job Description *
+                              </label>
+
+                              <textarea
+                                  className="form-control"
+                                  rows="6"
+                                  name="description"
+                                  placeholder="Describe responsibilities, skills and requirements..."
+                                  value={job.description}
+                                  onChange={handleChange}
+                              ></textarea>
+
+                              <small className="text-danger">
+                                  {errors.description}
+                              </small>
+
+                          </div>
+
+                          <div className="d-flex justify-content-between">
+
+                              <button
+                                  type="button"
+                                  className="btn btn-outline-secondary btn-lg"
+                                  onClick={() => navigate("/jobs")}
+                              >
+                                  Cancel
+                              </button>
+
+                              <button
+                                  className="btn btn-primary btn-lg px-5"
+                              >
+                                  <i className="bi bi-plus-circle me-2"></i>
+
+                                  Publish Job
+
+                              </button>
+
+                          </div>
+
+                      </form>
+
+                  </div>
+
+              </div>
+
+          </div>
+
+      </div>
+
+  </div>
+
   );
 }
 
